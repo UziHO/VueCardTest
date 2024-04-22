@@ -28,6 +28,7 @@
         v-model="userIdentifier"
         @input="handleInput"
         :class="{'input-error': errorExists}"
+        :maxlength="idMaxlength"
           
         />
       </div>
