@@ -31,7 +31,7 @@
         :maxlength="idMaxlength"
         v-abn-input="email"
         inputmode="email"
-          
+        autocomplete="username"
         />
       </div>
    
