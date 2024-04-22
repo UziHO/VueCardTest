@@ -27,6 +27,7 @@
        
         v-model="userIdentifier"
         @input="handleInput"
+        :class="{'input-error': errorExists}"
           
         />
       </div>
