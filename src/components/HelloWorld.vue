@@ -29,6 +29,7 @@
         @input="handleInput"
         :class="{'input-error': errorExists}"
         :maxlength="idMaxlength"
+        v-abn-input="email"
           
         />
       </div>
