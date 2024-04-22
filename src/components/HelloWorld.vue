@@ -9,7 +9,7 @@
         <input
           data-flow="signup"
           type="text"
-          id="user"
+          id="email"
           v-model="userIdentifier"
           @input="handleInput"
           :class="{'input-error': errorExists}"
