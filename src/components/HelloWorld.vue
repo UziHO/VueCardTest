@@ -24,6 +24,7 @@
         <input
         data-flow="signup"
         type="text"
+        id="username"
           
         />
       </div>
