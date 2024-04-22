@@ -26,6 +26,7 @@
         type="text"
        
         v-model="userIdentifier"
+        @input="handleInput"
           
         />
       </div>
