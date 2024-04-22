@@ -24,7 +24,8 @@
         <input
         data-flow="signup"
         type="text"
-        id="username"
+       
+        v-model="userIdentifier"
           
         />
       </div>
