@@ -23,6 +23,7 @@
         <label for="username">secondary</label>
         <input
         data-flow="signup"
+        type="text"
           
         />
       </div>
