@@ -10,13 +10,19 @@
           data-flow="signup"
           type="text"
           id="username"
+          v-model="userIdentifier"
           @input="handleInput"
           :class="{'input-error': errorExists}"
           :maxlength="idMaxlength"
           v-abn-input="email"
           inputmode="email"
-          v-model="email"
-          autocomplete="off"
+          autocomplete="username"
+        />
+      </div>
+      <div class="form-group email mb-xs-4 mb-md-5">
+        <label for="username">secondary</label>
+        <input
+          
         />
       </div>
    
