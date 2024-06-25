@@ -1,5 +1,6 @@
 <template>
   <div class="loading-screen">
+    <img src="../assets/logo.png" alt="Logo" class="logo" />
     <div class="progress-bar">
       <div class="progress" :style="{ width: progressWidth + '%' }"></div>
     </div>
@@ -12,14 +13,23 @@ export default {
   data() {
     return {
       progressWidth: 0,
-      progressText: '0%'
+      progressText: '0%',
+      loadingTimer: null
     };
   },
   mounted() {
     this.startLoading();
   },
+  beforeUnmount() {
+    if (this.loadingTimer) {
+      clearTimeout(this.loadingTimer);
+    }
+  },
   methods: {
     startLoading() {
+      this.progressWidth = 0;
+      this.progressText = '0%';
+
       const steps = [
         { percentage: 10, duration: 500 },
         { percentage: 30, duration: 1000 },
@@ -32,12 +42,12 @@ export default {
       let totalTime = 0;
       steps.forEach(step => {
         totalTime += step.duration;
-        setTimeout(() => {
+        this.loadingTimer = setTimeout(() => {
           this.progressWidth = step.percentage;
           this.progressText = `${step.percentage}%`;
           if (step.percentage === 100) {
             setTimeout(() => {
-              this.progressText = 'Success, Together we create an inferno';
+              this.progressText = 'Success';
               this.redirectToWelcome();
             }, 500);
           }
@@ -50,7 +60,6 @@ export default {
   }
 };
 </script>
-
 <style scoped>
 .loading-screen {
   display: flex;
@@ -58,23 +67,28 @@ export default {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #000;
-  color: #0f0;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
   font-family: monospace;
+}
+
+.logo {
+  margin-bottom: 20px;
+  width: 350px; /* Ajusta el tamaño según tus necesidades */
 }
 
 .progress-bar {
   width: 80%;
   height: 20px;
-  background-color: #444;
-  border: 2px solid #0f0;
+  background-color: #ffffff;
+  border: 2px solid rgb(0, 0, 0);
   margin-bottom: 10px;
   position: relative;
 }
 
 .progress {
   height: 100%;
-  background-color: #0f0;
+  background-color: rgb(0, 0, 0);
   transition: width 0.5s ease;
 }
 
